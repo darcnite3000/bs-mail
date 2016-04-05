@@ -1,0 +1,11 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './styles/styles.scss'
+
+class App extends React.Component {
+  render () {
+    return <h1>Helloworld</h1>
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
