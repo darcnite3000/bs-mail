@@ -1,11 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
+import configureStore from './store/configureStore'
+
+import App from './components/App'
+import 'match-media'
 import './styles/styles.scss'
 
-class App extends React.Component {
-  render () {
-    return <h1>Helloworld</h1>
-  }
-}
+const store = configureStore()
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+)

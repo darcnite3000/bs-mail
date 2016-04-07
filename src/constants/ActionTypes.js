@@ -1,0 +1,2 @@
+export const UPDATE_CONFIG = 'UPDATE_CONFIG'
+export const TOGGLE_PREVIEW = 'TOGGLE_PREVIEW'
