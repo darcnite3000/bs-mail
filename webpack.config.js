@@ -21,7 +21,11 @@ const getPlugins = (env) => {
 
   const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS)
+    new webpack.DefinePlugin(GLOBALS),
+    new webpack.ProvidePlugin({
+      'Promise': 'es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    })
   ]
 
   switch (env) {
