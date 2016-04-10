@@ -1,0 +1,37 @@
+{
+  "input": "generic_600_mailer.html",
+  "id": "1604",
+  "sites": [
+    {
+      "name": "BazarStudios.com",
+      "id": 0,
+      "sn": "bs",
+      "callout": "#subject#",
+      "root": "http://www.BazarStudios.com/client_work/mailers/"
+    }
+  ],
+  "webmasters":[null],
+  "imageLink": null,
+  "body": [
+    {
+      "name": "#header#",
+      "alt": "Bazar Studios",
+      "tdStyle": "text-align: center;"
+    },
+    {
+      "type": "text",
+      "content": "#main#",
+      "style": "margin: 10px;"
+    },
+    {
+      "name": "#sales#",
+      "alt": "SALE",
+      "tdStyle": "text-align: center;"
+    },
+    {
+      "type": "text",
+      "content": "#footer#",
+      "style": "margin: 10px;"
+    }
+  ]
+}

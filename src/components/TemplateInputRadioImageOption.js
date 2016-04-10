@@ -16,7 +16,7 @@ const TemplateInputRadioImageOption = ({id, value, option, onChange}) => {
         type='radio'
         checked={selected}
         onChange={handleChange} />
-      <img style={styles.image} src={option} />
+      <img style={styles.image} src={`./images/${option}`} />
     </label>
   )
 }
@@ -36,7 +36,7 @@ const styles = {
   },
   image: {
     verticalAlign: 'middle',
-    maxWidth: 160,
+    maxWidth: 150,
     maxHeight: 100
   },
   input: {

@@ -2,6 +2,9 @@ import * as types from '../constants/ActionTypes'
 
 const initialState = {
   showPreview: false,
+  templateURL: './templates/bs_1604_email.html',
+  templateLoading: false,
+  template: '',
   options: [
     {
       id: 'main',
@@ -13,9 +16,9 @@ const initialState = {
       type: 'radioImage',
       desc: 'Choose an image that truly expresses the awesomeness of your sales offer.',
       options: [
-        '/images/sale_1.jpg',
-        '/images/sale_2.jpg',
-        '/images/sale_3.jpg'
+        'sale_1.jpg',
+        'sale_2.jpg',
+        'sale_3.jpg'
       ]
     },
     {
@@ -28,6 +31,15 @@ const initialState = {
 
 const templateConfigOptions = (state = initialState, action) => {
   switch (action.type) {
+    case types.START_TEMPLATE_LOADING:
+      return {...state, templateLoading: true}
+    case types.UPDATE_PREVIEW_TEMPLATE:
+      return {
+        ...state,
+        templateURL: action.templateURL,
+        template: action.template,
+        templateLoading: true
+      }
     case types.TOGGLE_PREVIEW:
       return {...state, showPreview: !state.showPreview}
     default:

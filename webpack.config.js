@@ -82,7 +82,7 @@ const getConfig = (env) => ({
   target: env === testEnvironment ? 'node' : 'web',
   output: {
     path: `${__dirname}/dist`,
-    publicPath: '/',
+    publicPath: './',
     filename: 'bundle.js'
   },
   plugins: getPlugins(env),

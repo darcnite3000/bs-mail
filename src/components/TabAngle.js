@@ -1,10 +1,24 @@
 import React from 'react'
 import Radium from 'radium'
 
-const TabAngle = ({kind, side}) =>
-  <div style={[styles.base, styles[side], styles[kind][side]]}/>
+const TabAngle = ({side, border, background}) => {
+  const style = {
+    base: {
+      borderColor: border
+    },
+    before: {
+      boxShadow: `3px 5px 0 ${background}`
+    },
+    after: {
+      boxShadow: `-3px 5px 0 ${background}`
+    }
+  }
+
+  return <div style={[styles.base, styles[side], style.base, style[side]]}/>
+}
 TabAngle.propTypes = {
-  kind: React.PropTypes.oneOf(['main', 'aside']),
+  border: React.PropTypes.string,
+  background: React.PropTypes.string,
   side: React.PropTypes.oneOf(['before', 'after'])
 }
 
@@ -15,24 +29,7 @@ const styles = {
     width: 10,
     height: 13,
     borderStyle: 'solid',
-    borderColor: '#CDCDCD',
     boxSizing: 'border-box'
-  },
-  main: {
-    before: {
-      boxShadow: '3px 5px 0 #ffffff'
-    },
-    after: {
-      boxShadow: '-3px 5px 0 #ffffff'
-    }
-  },
-  aside: {
-    before: {
-      boxShadow: '3px 4px 0 #F3F3F3'
-    },
-    after: {
-      boxShadow: '-3px 4px 0 #F3F3F3'
-    }
   },
   before: {
     left: 0,

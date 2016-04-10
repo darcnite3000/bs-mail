@@ -5,19 +5,33 @@ import {connect} from 'react-redux'
 import Tab from '../components/Tab'
 import * as actions from '../actions/configActions'
 import TemplateConfig from '../components/TemplateConfig'
+import TemplatePreview from '../components/TemplatePreview'
+import Overlay from '../components/Overlay'
 
 const headerOptions = [
-  '/images/logo_1.jpg',
-  '/images/logo_2.jpg',
-  '/images/logo_3.jpg'
+  'logo_1.jpg',
+  'logo_2.jpg',
+  'logo_3.jpg'
 ]
 
 const TemplateBuilder = ({configOptions, config, actions}) => {
+  const showPreview = () => {
+    if (!configOptions.templateLoading && configOptions.templateURL && !configOptions.template) {
+      actions.loadPreviewTemplate(configOptions.templateURL)
+    }
+    actions.togglePreview()
+  }
+  const hidePreview = () => {
+    actions.togglePreview()
+  }
+
   return (
     <section style={styles.outer}>
       <header style={[styles.inner, styles.header]}>
         <Tab kind='main'>Email Template</Tab>
-        <Tab kind='aside' angles='before'>Preview</Tab>
+        <Tab kind='aside'
+          onClick={showPreview}
+          angles='before'>Preview</Tab>
       </header>
       <div style={[styles.inner, styles.main]}>
         <TemplateConfig
@@ -48,6 +62,15 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
           }
         </div>
       </div>
+      {
+        configOptions.showPreview &&
+          <Overlay close={hidePreview}>
+            <TemplatePreview
+              style={styles.preview}
+              template={configOptions.template}
+              config={config}/>
+          </Overlay>
+      }
     </section>
   )
 }
@@ -62,6 +85,8 @@ const styles = {
     margin: '10px auto'
   },
   inner: {
+    position: 'relative',
+    zIndex: 1,
     maxWidth: 600,
     color: '#CDCDCD'
   },
@@ -81,6 +106,10 @@ const styles = {
   },
   innerMain: {
     marginTop: 10
+  },
+  preview: {
+    width: '100%',
+    height: '100%'
   }
 }
 
