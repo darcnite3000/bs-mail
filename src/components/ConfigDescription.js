@@ -21,7 +21,11 @@ const styles = {
   description: {
     position: 'absolute',
     top: 0,
-    left: '100%'
+    left: '100%',
+    '@media (max-width: 960px)': {
+      position: 'relative',
+      left: 0
+    }
   }
 }
 

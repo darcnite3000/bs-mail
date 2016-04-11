@@ -28,7 +28,11 @@ const styles = {
   builder: {
     display: 'inline-block',
     float: 'right',
-    marginTop: 93
+    marginTop: 93,
+    '@media (max-width: 704px)': {
+      float: 'none',
+      marginTop: 0
+    }
   }
 }
 

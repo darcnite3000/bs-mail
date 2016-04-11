@@ -10,7 +10,7 @@ All HTML5 work slashed! That's Banners, eDMs and Landing Pages... You brief it i
 discount out build costs! Wow... I know, right!`,
   sales: 'sale_1.jpg',
   footer: `You'll think we've gone CRAZY with these cut proce deals on all digital production products.
-Get in quick so you don't miss out, we'll be booked out in no time.templateConfigOptions.js
+Get in quick so you don't miss out, we'll be booked out in no time.
 
 Oh no! You're already taking too long... Click here to get in touch!
 

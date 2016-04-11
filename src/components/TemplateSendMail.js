@@ -1,6 +1,8 @@
 import React from 'react'
 import Radium from 'radium'
+import color from 'color'
 import InputText from './TemplateInputText'
+import * as sb from '../constants/StyleBases'
 
 const TemplateSendMail = ({id, value, onClick, onChange, disabled}) => {
   return (
@@ -41,7 +43,11 @@ const styles = {
     display: 'block',
     width: '100%',
     padding: '28px 0',
-    background: '#C0E6FD',
+    backgroundColor: sb.BG_COLORS.alternate,
+    backgroundImage: `linear-gradient(to bottom,
+      ${sb.BG_COLORS.head},
+      ${color(sb.BG_COLORS.head).darken(0.1).hexString()} 40%,
+      ${sb.BG_COLORS.alternate})`,
     borderWidth: 1,
     borderRadius: 5
   }
