@@ -3,7 +3,7 @@ import Radium from 'radium'
 
 const InfoBubble = ({info, style}) =>
   <div style={[styles.outer, style]}>
-    <div style={styles.point}>&#9664;</div>
+    <div style={styles.point}/>
     <div style={styles.inner}>{info}</div>
   </div>
 InfoBubble.propTypes = {
@@ -24,18 +24,17 @@ const styles = {
     borderRadius: 4,
     position: 'relative',
     background: '#E5F5FE',
-    padding: 15,
+    padding: 10,
     boxSizing: 'border-box',
     boxShadow: '1px 1px 1px #888888'
   },
   point: {
     position: 'absolute',
-    zIndex: -1,
-    fontSize: 23,
-    textShadow: '1px 2px #888888',
-    left: 12,
+    left: 15,
     top: 5,
-    color: '#e5f5fe'
+    borderStyle: 'solid',
+    borderWidth: '8px 15px 8px 0px',
+    borderColor: 'transparent #E5F5FE transparent transparent'
   }
 }
 
