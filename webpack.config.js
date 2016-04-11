@@ -56,7 +56,11 @@ const getEntry = (env) => {
 const getLoaders = (env) => {
   const loaders = [
     {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel', 'eslint']},
-    {test: /\.(jpe?g|png|gif|svg)$/, loaders: ['file']}
+    {test: /\.(jpe?g|png|gif|svg)$/, loaders: ['file']},
+    {
+      test: /\.html$/,
+      loaders: ['raw']
+    }
   ]
 
   if (env === productionEnvironment) {
@@ -82,7 +86,7 @@ const getConfig = (env) => ({
   target: env === testEnvironment ? 'node' : 'web',
   output: {
     path: `${__dirname}/dist`,
-    publicPath: './',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: getPlugins(env),

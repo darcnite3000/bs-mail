@@ -1,10 +1,11 @@
 import * as types from '../constants/ActionTypes'
-
+import template from '../templates/bs_1604_email.html'
 const initialState = {
   showPreview: false,
   templateURL: './templates/bs_1604_email.html',
   templateLoading: false,
-  template: '',
+  mailing: false,
+  template,
   options: [
     {
       id: 'main',
@@ -31,6 +32,10 @@ const initialState = {
 
 const templateConfigOptions = (state = initialState, action) => {
   switch (action.type) {
+    case types.SENDING_MAIL:
+      return {...state, mailing: true}
+    case types.SENT_MAIL:
+      return {...state, mailing: false}
     case types.START_TEMPLATE_LOADING:
       return {...state, templateLoading: true}
     case types.UPDATE_PREVIEW_TEMPLATE:

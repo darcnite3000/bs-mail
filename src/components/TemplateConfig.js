@@ -3,10 +3,14 @@ import ConfigDescription from './ConfigDescription'
 import InputText from './TemplateInputText'
 import InputTextarea from './TemplateInputTextarea'
 import InputRadioImage from './TemplateInputRadioImage'
+import SendMail from './TemplateSendMail'
 
 const TemplateConfig = ({desc, type, descStyle, ...config}) => {
   let el
   switch (type) {
+    case 'sendMail':
+      el = <SendMail {...config} />
+      break
     case 'radioImage':
       el = <InputRadioImage {...config} />
       break

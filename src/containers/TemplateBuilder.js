@@ -7,6 +7,7 @@ import * as actions from '../actions/configActions'
 import TemplateConfig from '../components/TemplateConfig'
 import TemplatePreview from '../components/TemplatePreview'
 import Overlay from '../components/Overlay'
+import fillTemplate from '../util/fillTemplate'
 
 const headerOptions = [
   'logo_1.jpg',
@@ -23,6 +24,12 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
   }
   const hidePreview = () => {
     actions.togglePreview()
+  }
+  const sendMail = () => {
+    actions.sendMail(
+      config.toEmail,
+      config.fromEmail,
+      config.subject, fillTemplate(configOptions.template, config))
   }
 
   return (
@@ -61,6 +68,15 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
                 {...option} />)
           }
         </div>
+        <TemplateConfig
+          type='sendMail'
+          desc={"Once you're done, just enter the email addresses that you wish to recieve this offer," +
+                "then hit the big blue send button. It's that easy!"}
+          id='Email'
+          value={{to: config.toEmail, 'from': config.fromEmail}}
+          onChange={actions.updateConfig}
+          onClick={sendMail}
+          disabled={configOptions.mailing} />
       </div>
       {
         configOptions.showPreview &&
