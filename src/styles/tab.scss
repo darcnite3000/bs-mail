@@ -1,3 +1,94 @@
-.tab{
+@mixin tab-kind($fg,$bg,$border){
+  &.clickable:hover{
+    $lbg: lighten($bg, 10%);
+    cursor: pointer;
+    & > .angle{
+      &.angle-before{
+        box-shadow: 3px 5px 0 $lbg;
+      }
+      &.angle-after{
+        box-shadow: -3px 5px 0 $lbg;
+      }
+    }
+    & > .wrap{
+      background: $lbg;
+    }
+  }
+  & > .angle {
+    border-color: $border;
+    color: $fg;
+    &.angle-before{
+      box-shadow: 3px 5px 0 $bg;
+    }
+    &.angle-after{
+      box-shadow: -3px 5px 0 $bg;
+    }
+  }
+  & > .wrap {
+    border-color: $border;
+    color: $fg;
+    background: $bg;
+  }
+}
 
+.tab{
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  bottom: -1px;
+  display: block;
+  float: left;
+  &.angles-before{
+    padding: 0 0 0 9px;
+  }
+  &.angles-after{
+    padding: 0 9px 0 0;
+  }
+  &.angles-both{
+    padding: 0 9px;
+  }
+  & > .angle{
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 13px;
+    border-style: solid;
+    box-sizing: border-box;
+    &.angle-before{
+      left: 0;
+      border-radius: 0 0 24px 0;
+      border-width: 0 1px 1px 0;
+    }
+    &.angle-after{
+      right: 0;
+      border-radius: 0 0 0 24px;
+      border-width: 0 0 1px 1px;
+    }
+  }
+  &.tab-aside{
+    @include tab-kind(#000000,#F3F3F3,#CDCDCD);
+    font-size: 12px;
+    line-height: 18px;
+    float: right;
+    bottom: -1px;
+  }
+  &.tab-main{
+    @include tab-kind(#CDCDCD,#ffffff,#CDCDCD);
+    & > .wrap{
+      border-color: #CDCDCD #CDCDCD #ffffff #CDCDCD;
+    }
+    z-index: 2;
+  }
+  &.tab-overlay{
+    @include tab-kind(#000000,#C0E6FD,transparent);
+    font-size: 12px;
+    line-height: 18px;
+    bottom: -1;
+  }
+  & > .wrap{
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 18px 18px 0 0;
+    padding: 5px 15px;
+  }
 }
