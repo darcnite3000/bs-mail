@@ -1,12 +1,11 @@
 import React from 'react'
-import {StyleRoot} from 'radium'
 import Heading from './Heading'
 import TemplateBuilder from '../containers/TemplateBuilder'
 
 const App = () =>
-  <StyleRoot>
+  <div>
     <Heading />
     <TemplateBuilder />
-  </StyleRoot>
+  </div>
 
 export default App

@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import '../styles/templateInput.scss'
 
 const TemplateInputTextarea = ({id, label, value, style, onChange}) => {
   const handleChange = (e) => {

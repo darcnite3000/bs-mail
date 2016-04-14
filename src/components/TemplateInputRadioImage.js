@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import RadioOption from './TemplateInputRadioImageOption'
+import '../styles/templateInput.scss'
 
 const TemplateInputRadioImage = ({id, label, value, style, options, onChange}) => {
   const innerStyle = {

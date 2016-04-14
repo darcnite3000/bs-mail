@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import InputText from './TemplateInputText'
 import * as sb from '../constants/StyleBases'
+import '../styles/templateInput.scss'
 
 const TemplateSendMail = ({id, value, onClick, onChange, disabled}) => {
   return (
