@@ -30,7 +30,7 @@ const styles = {
     width: '100%',
     minHeight: 200,
     padding: 5,
-    fontSize: 13,
+    fontSize: 12,
     boxSizing: 'border-box'
   },
   heading: {

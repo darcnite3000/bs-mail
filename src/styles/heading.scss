@@ -1,0 +1,23 @@
+.heading{
+  background: #C0E6FD;
+  & > .wrap{
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow: hidden;
+
+    & > .logo,
+    & > .title{
+      display: inline-block;
+    }
+    & > .title{
+      float: right;
+      margin-top: 93px;
+      @media (max-width: 704px){
+        float: none;
+        margin-top: 0;
+      }
+    }
+  }
+}

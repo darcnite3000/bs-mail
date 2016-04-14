@@ -70,7 +70,7 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
         </div>
         <TemplateConfig
           type='sendMail'
-          desc={"Once you're done, just enter the email addresses that you wish to recieve this offer," +
+          desc={"Once you're done, just enter the email addresses that you wish to recieve this offer, " +
                 "then hit the big blue send button. It's that easy!"}
           id='Email'
           value={{to: config.toEmail, 'from': config.fromEmail}}

@@ -1,11 +1,11 @@
 import React from 'react'
-import Radium from 'radium'
 import InfoBubble from './InfoBubble'
+import '../styles/configDescription.scss'
 
 const ConfigOption = ({desc, children, style}) =>
-  <div style={styles.outer}>
+  <div className='config-description'>
     {children}
-    <InfoBubble style={[styles.description, style]} info={desc} />
+    <InfoBubble className='description' style={style} info={desc} />
   </div>
 
 ConfigOption.propTypes = {
@@ -14,19 +14,4 @@ ConfigOption.propTypes = {
   desc: React.PropTypes.string.isRequired
 }
 
-const styles = {
-  outer: {
-    position: 'relative'
-  },
-  description: {
-    position: 'absolute',
-    top: 0,
-    left: '100%',
-    '@media (max-width: 960px)': {
-      position: 'relative',
-      left: 0
-    }
-  }
-}
-
-export default Radium(ConfigOption)
+export default ConfigOption

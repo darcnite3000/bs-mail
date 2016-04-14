@@ -9,7 +9,7 @@ Check it out! Everything is ON SALE at Bazar Studios, your plug-in creative depa
 All HTML5 work slashed! That's Banners, eDMs and Landing Pages... You brief it in, we'll
 discount out build costs! Wow... I know, right!`,
   sales: 'sale_1.jpg',
-  footer: `You'll think we've gone CRAZY with these cut proce deals on all digital production products.
+  footer: `You'll think we've gone CRAZY with these cut price deals on all digital production products.
 Get in quick so you don't miss out, we'll be booked out in no time.
 
 Oh no! You're already taking too long... Click here to get in touch!
