@@ -1,11 +1,13 @@
+@import '_config';
+
 .template-builder{
-  max-width: 960px;
+  max-width: $main-width;
   margin: 10px auto;
   & > .content{
     position: relative;
     z-index: 1;
-    max-width: 600px;
-    color: #CDCDCD;
+    max-width: $inner-width;
+    color: $content-fg;
     &.header{
       height: 30px;
     }
@@ -16,6 +18,9 @@
     border: 1px solid;
     .body{
       margin-top: 10px;
+    }
+    & > .title{
+      font-weight: bold;
     }
   }
 }

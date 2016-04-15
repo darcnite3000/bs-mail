@@ -1,5 +1,9 @@
+@import '_config';
+
 body{
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $sanserif-font;
+  color: $content-fg;
+  background: $content-bg;
 }

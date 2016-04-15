@@ -1,3 +1,5 @@
+@import '_config';
+
 @mixin tab-kind($fg,$bg,$border){
   &.clickable:hover{
     $lbg: lighten($bg, 10%);
@@ -66,21 +68,21 @@
     }
   }
   &.tab-aside{
-    @include tab-kind(#000000,#F3F3F3,#CDCDCD);
+    @include tab-kind($aside-fg,$aside-bg,$content-fg);
     font-size: 12px;
     line-height: 18px;
     float: right;
     bottom: -1px;
   }
   &.tab-main{
-    @include tab-kind(#CDCDCD,#ffffff,#CDCDCD);
+    @include tab-kind($content-fg,$content-bg,$content-fg);
     & > .wrap{
-      border-color: #CDCDCD #CDCDCD #ffffff #CDCDCD;
+      border-color: $content-fg $content-fg $content-bg $content-fg;
     }
     z-index: 2;
   }
   &.tab-overlay{
-    @include tab-kind(#000000,#C0E6FD,transparent);
+    @include tab-kind($aside-fg,$head-bg,transparent);
     font-size: 12px;
     line-height: 18px;
     bottom: -1;

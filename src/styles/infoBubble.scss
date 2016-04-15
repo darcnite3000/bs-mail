@@ -1,17 +1,19 @@
+@import '_config';
+
 .info-bubble {
   position: relative;
   & > .wrap {
     margin-left: 30px;
     font-size: 16px;
-    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    font-family: $serif-font;
     width: 320px;
-    color: #888888;
+    color: $aside-fg;
     border-radius: 4px;
     position: relative;
-    background: #E5F5FE;
+    background: $info-bg;
     padding: 10px;
     box-sizing: border-box;
-    box-shadow: 1px 1px 1px #888888;
+    box-shadow: 1px 1px 1px $aside-fg;
   }
   & > .point {
     position: absolute;
@@ -19,6 +21,6 @@
     top: 5px;
     border-style: solid;
     border-width: 8px 15px 8px 0px;
-    border-color: transparent #E5F5FE transparent transparent;
+    border-color: transparent $info-bg transparent transparent;
   }
 }
