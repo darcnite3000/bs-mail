@@ -1,8 +1,20 @@
 import React from 'react'
 import fillTemplate from '../util/fillTemplate'
 
-const TemplatePreview = ({template, config}) =>
-  <iframe style={style} src={`data:text/html;charset=utf-8,${encodeURI(fillTemplate(template, config))}`} />
+class TemplatePreview extends React.Component {
+  componentDidMount () {
+    const {template, config} = this.props
+    const {frame} = this.refs
+    const fcw = frame.contentWindow
+    const filledTemplate = fillTemplate(template, config)
+    fcw.document.open()
+    fcw.document.write(filledTemplate)
+    fcw.document.close()
+  }
+  render () {
+    return <iframe style={style} ref='frame' />
+  }
+}
 TemplatePreview.propTypes = {
   template: React.PropTypes.string.isRequired,
   config: React.PropTypes.object.isRequired
