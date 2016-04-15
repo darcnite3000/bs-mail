@@ -8,6 +8,7 @@
     font-family: $serif-font;
     width: 320px;
     color: $aside-fg;
+    text-shadow: -1px 0 1px transparentize(lighten($aside-fg, 55%), 0.1);
     border-radius: 4px;
     position: relative;
     background: $info-bg;

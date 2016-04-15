@@ -3,7 +3,6 @@
 .template-input{
   width: 100%;
   padding: 5px;
-  font-size: 13px;
   box-sizing: border-box;
   margin-top: 10px;
   &.block{
@@ -13,7 +12,7 @@
       width: 100%;
       min-height: 200px;
       padding: 5px;
-      font-size: 12px;
+      font-size: 11px;
       box-sizing: border-box;
     }
   }
@@ -44,10 +43,22 @@
   button{
     display: block;
     width: 100%;
-    padding: 28px 0;
+    padding: 16px 0;
+    font-size: 26px;
     background: $head-bg;
+    text-shadow: -1px 0 1px transparentize(lighten($aside-fg, 55%), 0.1);
+    color: $aside-fg;
     border-width: 1px;
     border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover{
+      text-shadow: 1px 0 1px transparentize(lighten($aside-fg, 5%), 0.1);
+    }
+    &:active{
+      background: $info-bg;
+      text-shadow: 1px 0 1px transparentize(lighten($aside-fg, 5%), 0.1);
+    }
   }
   .left,
   .right{
