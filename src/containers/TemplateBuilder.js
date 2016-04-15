@@ -1,7 +1,7 @@
 import React from 'react'
-import Radium from 'radium'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import '../styles/templateBuilder.scss'
 import Tab from '../components/Tab'
 import * as actions from '../actions/configActions'
 import TemplateConfig from '../components/TemplateConfig'
@@ -33,14 +33,14 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
   }
 
   return (
-    <section style={styles.outer}>
-      <header style={[styles.inner, styles.header]}>
+    <section className='template-builder'>
+      <header className='content header'>
         <Tab kind='main'>Email Template</Tab>
         <Tab kind='aside'
           onClick={showPreview}
           angles='before'>Preview</Tab>
       </header>
-      <div style={[styles.inner, styles.main]}>
+      <div className='content body'>
         <TemplateConfig
           id='subject'
           type='text'
@@ -49,7 +49,6 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
           onChange={actions.updateConfig}
           desc='What is the subject of your email?' />
         <TemplateConfig
-          style={styles.main}
           id='header'
           type='radioImage'
           label='Choose Header Image'
@@ -57,13 +56,13 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
           options={headerOptions}
           onChange={actions.updateConfig}
           desc="Choose the logo or image that you'd like featured a the top of your email." />
-        <div style={[styles.main, styles.innerMain]}>
-          <div style={styles.heading}>Sample Content:</div>
+        <div className='body'>
+          <div className='title'>Sample Content:</div>
           {
             configOptions.options.map((option) =>
               <TemplateConfig key={option.id}
                 value={config[option.id]}
-                descStyle={styles.innerFix}
+                descStyle={{marginLeft: 5}}
                 onChange={actions.updateConfig}
                 {...option} />)
           }
@@ -82,7 +81,6 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
         configOptions.showPreview &&
           <Overlay close={hidePreview}>
             <TemplatePreview
-              style={styles.preview}
               template={configOptions.template}
               config={config}/>
           </Overlay>
@@ -93,40 +91,6 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
 TemplateBuilder.propTypes = {
   configOptions: React.PropTypes.object.isRequired,
   config: React.PropTypes.object.isRequired
-}
-
-const styles = {
-  outer: {
-    maxWidth: 960,
-    margin: '10px auto'
-  },
-  inner: {
-    position: 'relative',
-    zIndex: 1,
-    maxWidth: 600,
-    color: '#CDCDCD'
-  },
-  innerFix: {
-    marginLeft: 5
-  },
-  header: {
-    height: 30
-  },
-  heading: {
-    fontWeight: 'bold'
-  },
-  main: {
-    boxSizing: 'border-box',
-    padding: 5,
-    border: '1px solid'
-  },
-  innerMain: {
-    marginTop: 10
-  },
-  preview: {
-    width: '100%',
-    height: '100%'
-  }
 }
 
 const mapStateToProps = (state) => ({
@@ -140,4 +104,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps)(Radium(TemplateBuilder))
+  mapDispatchToProps)(TemplateBuilder)

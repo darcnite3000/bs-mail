@@ -1,5 +1,5 @@
 import React from 'react'
-import Radium from 'radium'
+import cx from 'classnames'
 import RadioOption from './TemplateInputRadioImageOption'
 import '../styles/templateInput.scss'
 
@@ -7,10 +7,11 @@ const TemplateInputRadioImage = ({id, label, value, style, options, onChange}) =
   const innerStyle = {
     width: options.length * 190
   }
+  const inputClass = cx('template-input', 'block', {'no-border': !label})
   return (
-    <div style={[styles.outer, style]}>
-      {label && <div style={styles.heading}>{label}:</div>}
-      <div style={[styles.inner, innerStyle]}>
+    <div className={inputClass}>
+      {label && <div className='title'>{label}:</div>}
+      <div style={innerStyle}>
         {
           options.map((option) =>
             <RadioOption key={option} id={id}
@@ -31,16 +32,4 @@ TemplateInputRadioImage.propTypes = {
   onChange: React.PropTypes.func.isRequired
 }
 
-const styles = {
-  outer: {
-    marginTop: 10,
-    overflow: 'auto'
-  },
-  inner: {},
-  heading: {
-    marginBottom: 5,
-    fontWeight: 'bold'
-  }
-}
-
-export default Radium(TemplateInputRadioImage)
+export default TemplateInputRadioImage

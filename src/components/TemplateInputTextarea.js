@@ -1,15 +1,16 @@
 import React from 'react'
-import Radium from 'radium'
+import cx from 'classnames'
 import '../styles/templateInput.scss'
 
-const TemplateInputTextarea = ({id, label, value, style, onChange}) => {
+const TemplateInputTextarea = ({id, label, value, onChange}) => {
   const handleChange = (e) => {
     onChange(id, e.target.value)
   }
+  const inputClass = cx('template-input', 'block', {'no-border': !label})
   return (
-    <div style={[styles.outer, style]}>
-      {label && <div style={styles.heading}>{label}:</div>}
-      <textarea id={id} style={styles.inner}
+    <div className={inputClass}>
+      {label && <div className='title'>{label}:</div>}
+      <textarea id={id} className='textarea'
         onChange={handleChange}
         value={value} />
     </div>
@@ -19,25 +20,7 @@ TemplateInputTextarea.propTypes = {
   id: React.PropTypes.string,
   label: React.PropTypes.string,
   value: React.PropTypes.string,
-  style: React.PropTypes.object,
   onChange: React.PropTypes.func.isRequired
 }
 
-const styles = {
-  outer: {
-    marginTop: 10
-  },
-  inner: {
-    width: '100%',
-    minHeight: 200,
-    padding: 5,
-    fontSize: 12,
-    boxSizing: 'border-box'
-  },
-  heading: {
-    marginBottom: 5,
-    fontWeight: 'bold'
-  }
-}
-
-export default Radium(TemplateInputTextarea)
+export default TemplateInputTextarea

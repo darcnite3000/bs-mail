@@ -1,18 +1,18 @@
 import React from 'react'
-import Radium from 'radium'
+import cx from 'classnames'
 import InputText from './TemplateInputText'
-import * as sb from '../constants/StyleBases'
 import '../styles/templateInput.scss'
 
 const TemplateSendMail = ({id, value, onClick, onChange, disabled}) => {
+  const templateClass = cx('template-input', 'template-input-sendmail')
   return (
-    <div style={styles.outer}>
-      <div style={styles.left}>
+    <div className={templateClass}>
+      <div className='left'>
         <InputText label='To Email' value={value.to} id={`to${id}`} onChange={onChange} />
         <InputText label='From Email' value={value.from} id={`from${id}`} onChange={onChange} />
       </div>
-      <div style={styles.right}>
-        <button style={styles.button} onClick={onClick} disabled={disabled}>Send</button>
+      <div className='right'>
+        <button onClick={onClick} disabled={disabled}>Send</button>
       </div>
     </div>
   )
@@ -25,28 +25,4 @@ TemplateSendMail.propTypes = {
   onChange: React.PropTypes.func.isRequired
 }
 
-const styles = {
-  outer: {
-    overflow: 'auto'
-  },
-  left: {
-    width: '80%',
-    float: 'left'
-  },
-  right: {
-    width: '20%',
-    float: 'left',
-    boxSizing: 'border-box',
-    padding: '10px 0 0 10px'
-  },
-  button: {
-    display: 'block',
-    width: '100%',
-    padding: '28px 0',
-    background: sb.BG_COLORS.head,
-    borderWidth: 1,
-    borderRadius: 5
-  }
-}
-
-export default Radium(TemplateSendMail)
+export default TemplateSendMail
