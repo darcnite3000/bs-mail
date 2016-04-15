@@ -24,4 +24,13 @@
     border-width: 8px 15px 8px 0px;
     border-color: transparent $info-bg transparent transparent;
   }
+  @media (max-width: 960px) {
+    & > .wrap {
+      margin: 5px 0 10px;
+      width: 100%;
+    }
+    & > .point {
+      display: none;
+    }
+  }
 }
