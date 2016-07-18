@@ -8,7 +8,7 @@ const stripFrame = (string) => {
 }
 const stripScript = (string) => {
   const scriptTag = new RegExp(/<script.*script>/, 'gi')
-  const scriptRef = new RegExp(/(\'|\")javascript:.*(\'|\")/, 'gi')
+  const scriptRef = new RegExp(/('|")javascript:.*('|")/, 'gi')
   return string.replace(scriptTag, '').replace(scriptRef, '')
 }
 const stripUnwanted = (string) => stripScript(stripFrame(string))

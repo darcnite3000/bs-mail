@@ -82,7 +82,7 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
           <Overlay close={hidePreview}>
             <TemplatePreview
               template={configOptions.template}
-              config={config}/>
+              config={config} />
           </Overlay>
       }
     </section>
@@ -90,7 +90,8 @@ const TemplateBuilder = ({configOptions, config, actions}) => {
 }
 TemplateBuilder.propTypes = {
   configOptions: React.PropTypes.object.isRequired,
-  config: React.PropTypes.object.isRequired
+  config: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({

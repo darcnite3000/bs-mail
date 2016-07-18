@@ -5,7 +5,7 @@ import '../styles/overlay.scss'
 const Overlay = ({children, close}) => {
   return (
     <div className='overlay'>
-      <div className='catch' onClick={close}/>
+      <div className='catch' onClick={close} />
       <div className='wrap'>
         <div className='close'><Tab onClick={close} kind='overlay' angles='before'>Close</Tab></div>
         <div className='container'>{children}</div>

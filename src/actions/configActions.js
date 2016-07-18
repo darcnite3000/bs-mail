@@ -1,3 +1,5 @@
+/* globals fetch */
+
 import * as types from '../constants/ActionTypes'
 
 export function updateConfig (id, value) {

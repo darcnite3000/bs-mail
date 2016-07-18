@@ -6,7 +6,7 @@ const InfoBubble = ({info, style, className}) => {
   const wrapClass = cx('info-bubble', className)
   return (
     <div className={wrapClass} style={style}>
-      <div className='point'/>
+      <div className='point' />
       <div className='wrap'>{info}</div>
     </div>
   )
